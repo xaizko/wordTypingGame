@@ -1,11 +1,18 @@
+//standard libraries
 #include <stdio.h>
-#include <sys/types.h>
 #include <stdlib.h>
-#include <sys/time.h>
 #include <unistd.h>
 #include <string.h>
 
+//timer libraries
+#include <sys/types.h>
+#include <sys/time.h>
+
+//Api libraries
+#include <curl/curl.h>
+
 //code taken from https://github.com/xaizko/UserInputTimer
+//This function simply acts as a input timer
 char *timeOut(int timeout)  {
     static char buf[512];
     fd_set rfds;
