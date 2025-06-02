@@ -40,18 +40,22 @@ size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {
 
 //Sample api call
 void sampleCurlCall(CURL *curl, CURLcode res, char *response) {
-   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
-   curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
-   res = curl_easy_perform(curl);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 
-   if (res != CURLE_OK) {
-       fprintf(stderr, "failed to perform request: %s\n", curl_easy_strerror(res));
-   } else {
-       printf("Reponse: %s\n", response);
-   }
+    //performs api request
+    res = curl_easy_perform(curl);
 
-   free(response);
-   curl_easy_cleanup(curl);
+    if (res != CURLE_OK) {
+	fprintf(stderr, "failed to perform request: %s\n", curl_easy_strerror(res));
+    } else {
+	size_t len = strlen(response);
+	response[len-2] = '\0';
+	printf("Reponse: %s\n", response+2);
+    }
+
+    free(response);
+    curl_easy_cleanup(curl);
 
 }
