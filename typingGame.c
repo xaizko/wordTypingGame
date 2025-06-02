@@ -2,15 +2,15 @@
 
 int main() {
     char *word;
+    int timer;
+
+    printf("Enter preferred time you'd like to be given to type 1 word: ");
+    scanf("%d", &timer);
+
+
     printf("Enter a word: ");
     fflush(stdout);
 
-    word = timeOut(3);
-    if (word) {
-	printf("sup\n");
-    } else {
-	printf("Didnt work\n");
-    }
-
+    word = timeOut(timer);
     return 0;
 }
