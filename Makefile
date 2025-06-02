@@ -1,11 +1,12 @@
 CC=gcc
 OUTPUT=-o typingGame
 FLAGS=-lcurl
+SRC=typingGame.c typingGameFunctions.c
 
-all: typingGame
-
-typingGame: typingGame.c
-	$(CC) typingGame.c typingGameFunctions.c $(OUTPUT) $(FLAGS)
+all:
+	$(CC) $(SRC) $(OUTPUT) $(FLAGS)
 
 clean:
 	rm -f typingGame
+
+.PHONY: all clean
