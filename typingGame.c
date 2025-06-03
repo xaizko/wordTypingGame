@@ -3,12 +3,12 @@
 int main() {
     char *word;
     int timer;
+    int choice;
 
     //Api Request Tools
     CURL *curl;
     CURLcode res;
     char *response = NULL;
-    
     curl = curl_easy_init();
     if (!curl) {
 	fprintf(stderr, "%s\n", "Failed to create CURL object");
@@ -17,18 +17,15 @@ int main() {
 	//setting url
 	curl_easy_setopt(curl, CURLOPT_URL, "https://random-word-api.herokuapp.com/word");
     }
-
-    sampleCurlCall(curl, res, response);
+   //CurlCall(curl, res, response);
     
+   printf("Enter preferred time you'd like to be given to type 1 word: ");
+   scanf("%d", &timer);
 
 
-   // printf("Enter preferred time you'd like to be given to type 1 word: ");
-   // scanf("%d", &timer);
+   printf("Enter a word: ");
+   fflush(stdout);
 
-
-   // printf("Enter a word: ");
-   // fflush(stdout);
-
-   // word = timeOut(timer);
+   word = timeOut(timer);
    return 0;
 }

@@ -38,8 +38,8 @@ size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {
     return realsize;
 }
 
-//Sample api call
-void sampleCurlCall(CURL *curl, CURLcode res, char *response) {
+//api call
+void CurlCall(CURL *curl, CURLcode res, char *response) {
 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
