@@ -33,12 +33,15 @@ int main() {
     scanf("%d", &timer);
 
     do {
-
+	printf("Choice: ");
+	scanf("%d", &choice);
+	char *word = CurlCall(curl ,res, response);
+	checkEqual(word);
     } while (choice != 0);
 
-    printf("Enter a word: ");
-    fflush(stdout);
+    //printf("Enter a word: ");
+    //fflush(stdout);
 
-    word = timeOut(timer);
+    //word = timeOut(timer);
     return 0;
 }
