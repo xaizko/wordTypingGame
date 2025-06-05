@@ -39,7 +39,7 @@ size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {
 }
 
 //api call
-void CurlCall(CURL *curl, CURLcode res, char *response) {
+char* CurlCall(CURL *curl, CURLcode res, char *response) {
 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
@@ -50,12 +50,21 @@ void CurlCall(CURL *curl, CURLcode res, char *response) {
     if (res != CURLE_OK) {
 	fprintf(stderr, "failed to perform request: %s\n", curl_easy_strerror(res));
     } else {
+	char *temp = response + 2;
 	size_t len = strlen(response);
-	response[len-2] = '\0';
-	printf("Reponse: %s\n", response+2);
+	temp[len-2] = '\0';
+	return temp;
     }
 
+    return 0;
     free(response);
     curl_easy_cleanup(curl);
 
+}
+
+//check if the words are equal
+int checkEqual(char* temp) {
+    printf("%s", temp);
+
+    return 1;
 }
