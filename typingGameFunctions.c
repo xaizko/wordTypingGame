@@ -75,3 +75,19 @@ int checkEqual(char* temp) {
 
     return 1;
 }
+
+void printMenu() {
+    printf("=============================================\n");
+    printf("|                 MAIN MENU                 |\n");
+    printf("=============================================\n");
+    printf("| [1] Play Regular Game                     |\n");
+    printf("=============================================\n");
+    printf("| [2] Special Modes                         |\n");
+    printf("=============================================\n");
+    printf("| [3] Show Highscores                       |\n");
+    printf("=============================================\n");
+    printf("| [4] Exit Game                             |\n");
+    printf("=============================================\n");
+    return;
+}
+
