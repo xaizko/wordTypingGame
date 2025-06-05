@@ -56,10 +56,9 @@ char* CurlCall(CURL *curl, CURLcode res, char *response) {
 	fprintf(stderr, "failed to perform request: %s\n", curl_easy_strerror(res));
 	return NULL;
     } else {
-	char *temp = response + 2;
 	size_t len = strlen(response);
-	temp[len-2] = '\0';
-	return temp;
+	response[len-2] = '\0';
+	return response+2;
     }
 
     free(response);
@@ -70,9 +69,24 @@ char* CurlCall(CURL *curl, CURLcode res, char *response) {
 }
 
 //check if the words are equal
-int checkEqual(char* temp) {
-    printf("%s", temp);
+int checkEqual(char* temp, int timer) {
+    //prints the word and ask the user to type it
+    printf("%s\n", temp);
+    printf("Type your word: ");
+    fflush(stdout);
+    char *typedWord = timeOut(timer);
 
+    //if not typed fast enough points subtracted
+    if (typedWord == NULL) {
+        printf("Ran out of time: -1 point\n");
+    }
+
+    //logic to check if the word is correct
+    if (!strcmp(temp, typedWord)) {
+	printf("Correct: +1 Point\n");
+    } else {
+	printf("Incorrect: -1 Point\n");
+    }
     return 1;
 }
 

@@ -17,7 +17,6 @@ int main() {
 	//setting url
 	curl_easy_setopt(curl, CURLOPT_URL, "https://random-word-api.herokuapp.com/word");
     }
-    char *temp = CurlCall(curl, res, response);
 
     printf("+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
     printf("| ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗     ████████╗██╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗      ██████╗  █████╗ ███╗   ███╗███████╗ |\n");
@@ -36,8 +35,8 @@ int main() {
     do {
 	printf("Choice: ");
 	scanf("%d", &choice);
-	word = CurlCall(curl ,res, response);
-	checkEqual(word);
+	word = CurlCall(curl , res, response);
+	checkEqual(word, timer);
     } while (choice != 0);
 
     //printf("Enter a word: ");

@@ -15,5 +15,5 @@
 char *timeOut(int timeout); //Function to give user input a timer
 size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp); //Function to write response to a string
 char* CurlCall(CURL *curl, CURLcode res, char *response); //Test api call function
-int checkEqual(char* temp);
+int checkEqual(char* temp, int timer);
 void printMenu();
