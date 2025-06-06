@@ -28,23 +28,19 @@ int main() {
     printf("+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
 
     printMenu();
+    selectMenu();
 
-    printf("Enter preferred time you'd like to be given to type 1 word: ");
-    scanf("%d", &timer);
+    //printf("Enter preferred time you'd like to be given to type 1 word: ");
+    //scanf("%d", &timer);
 
-    do {
-	printf("Choice: ");
-	scanf("%d", &choice);
-	word = CurlCall(curl , res, response);
-	checkEqual(word, timer);
-    } while (choice != 0);
+    //do {
+    //    printf("Choice: ");
+    //    scanf("%d", &choice);
+    //    word = CurlCall(curl , res, response);
+    //    checkEqual(word, timer);
+    //} while (choice != 0);
 
-    //printf("Enter a word: ");
-    //fflush(stdout);
-
-    //word = timeOut(timer);
-
-    curl_easy_cleanup(curl);
+    //curl_easy_cleanup(curl);
 
     return 0;
 }

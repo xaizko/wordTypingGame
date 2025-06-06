@@ -102,6 +102,34 @@ void printMenu() {
     printf("=============================================\n");
     printf("| [4] Exit Game                             |\n");
     printf("=============================================\n");
+
     return;
+}
+
+//Runs game based on chosen choice
+void selectMenu(){
+    //get user choice
+    int menuSelect;
+    printf("Enter your choice: ");
+    scanf("%d", &menuSelect);
+    
+    //Choose gamemode based on user input
+    switch (menuSelect){
+	case 1:
+	    printf("Play regular\n");
+	    break;
+	case 2:
+	    printf("Work in Progress!\n");
+	    break;
+	case 3:
+	    printf("Work in Progress!\n");
+	    break;
+	case 4:
+	    printf("Exiting Game. Thanks for playing!\n");
+	    break;
+	default:
+	    printf("Invalid Choice, try again");
+	    selectMenu();
+    }
 }
 
