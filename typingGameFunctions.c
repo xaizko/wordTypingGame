@@ -86,6 +86,7 @@ int checkEqual(char* temp, int timer) {
 	printf("Correct: +1 Point\n");
     } else {
 	printf("Incorrect: -1 Point\n");
+	return 0;
     }
     return 1;
 }
