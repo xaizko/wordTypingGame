@@ -5,6 +5,7 @@ int main() {
     int timer;
     int choice;
     int menuSelect;
+    int running = 1;
 
     //Api Request Tools
     CURL *curl;
@@ -28,38 +29,41 @@ int main() {
     printf("|  ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝        ╚═╝      ╚═╝   ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ |\n");
     printf("+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+%s\n", AC_NORMAL);
 
-    printMenu();
-    printf("Enter your choice: ");
-    scanf("%d", &menuSelect);
 
     //Choose gamemode based on user input
-    switch (menuSelect){
-	case 1:
-	    printf("Loading up Typing Game regular mode...\n");
-	    break;
-	case 2:
-	    printf("Work in Progress!\n");
-	    break;
-	case 3:
-	    printf("Work in Progress!\n");
-	    break;
-	case 4:
-	    printf("Exiting Game. Thanks for playing!\n");
-	    break;
-	default:
-	    printf("Invalid Choice, try again");
+    while (running) {
+	//print and get user choice
+	printMenu();
+	printf("Enter your choice: ");
+	scanf("%d", &menuSelect);
+
+	//react based on choice
+	switch (menuSelect){
+	    case 1:
+		printf("Loading up Typing Game regular mode...\n");
+		printf("Enter preferred time you'd like to be given to type 1 word: ");
+		scanf("%d", &timer);
+		do {
+		    word = CurlCall(curl , res, response);
+		} while (checkEqual(word, timer));
+
+		break;
+	    case 2:
+		printf("Work in Progress!\n");
+		break;
+	    case 3:
+		printf("Work in Progress!\n");
+		break;
+	    case 4:
+		printf("Exiting Game. Thanks for playing!\n");
+		break;
+	    default:
+		printf("Invalid Choice, try again");
+	}
     }
-    //printf("Enter preferred time you'd like to be given to type 1 word: ");
-    //scanf("%d", &timer);
 
-    //do {
-    //    printf("Choice: ");
-    //    scanf("%d", &choice);
-    //    word = CurlCall(curl , res, response);
-    //    checkEqual(word, timer);
-    //} while (choice != 0);
-
-    //curl_easy_cleanup(curl);
+    
+    curl_easy_cleanup(curl);
 
     return 0;
 }
