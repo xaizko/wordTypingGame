@@ -91,7 +91,7 @@ int checkEqual(char* temp, int timer) {
 }
 
 void printMenu() {
-    printf("=============================================\n");
+    printf("%s=============================================\n", AC_BLUE);
     printf("|                 MAIN MENU                 |\n");
     printf("=============================================\n");
     printf("| [1] Play Regular Game                     |\n");
@@ -101,35 +101,9 @@ void printMenu() {
     printf("| [3] Show Highscores                       |\n");
     printf("=============================================\n");
     printf("| [4] Exit Game                             |\n");
-    printf("=============================================\n");
+    printf("=============================================%s\n", AC_NORMAL);
 
     return;
 }
 
-//Runs game based on chosen choice
-void selectMenu(){
-    //get user choice
-    int menuSelect;
-    printf("Enter your choice: ");
-    scanf("%d", &menuSelect);
-    
-    //Choose gamemode based on user input
-    switch (menuSelect){
-	case 1:
-	    printf("Play regular\n");
-	    break;
-	case 2:
-	    printf("Work in Progress!\n");
-	    break;
-	case 3:
-	    printf("Work in Progress!\n");
-	    break;
-	case 4:
-	    printf("Exiting Game. Thanks for playing!\n");
-	    break;
-	default:
-	    printf("Invalid Choice, try again");
-	    selectMenu();
-    }
-}
 
