@@ -86,7 +86,9 @@ int checkEqual(char* temp, int timer) {
 
     //logic to check if the word is correct
     if (!strcmp(temp, typedWord)) {
-	printf("Correct: +%d points\n", strlen(temp));
+	int pointsAdd = strlen(temp);
+	score += pointsAdd;
+	printf("%sCorrect: +%d points\n", AC_GREEN, pointsAdd);
     } else {
 	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score);
 	return 0;
