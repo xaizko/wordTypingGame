@@ -1,6 +1,8 @@
 #include "typingGame.h"
 
 int score;
+int regularHighscore;
+FILE *scoreFile;
 
 //code taken from https://github.com/xaizko/UserInputTimer
 //This function simply acts as a input timer
@@ -112,4 +114,14 @@ void printMenu() {
     return;
 }
 
+//Load Highscores
+void loadHighscore() {
+    scoreFile = fopen("highscores.txt", "w");
+    
+
+
+    fclose(scoreFile);
+
+    return;
+}
 
