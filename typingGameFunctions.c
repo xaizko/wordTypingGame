@@ -90,7 +90,7 @@ int checkEqual(char* temp, int timer) {
 	score += pointsAdd;
 	printf("%sCorrect: +%d points%s\n", AC_GREEN, pointsAdd, AC_NORMAL);
     } else {
-	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score);
+	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score, AC_NORMAL);
 	return 0;
     }
     return 1;
