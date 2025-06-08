@@ -1,5 +1,7 @@
 #include "typingGame.h"
 
+int score;
+
 //code taken from https://github.com/xaizko/UserInputTimer
 //This function simply acts as a input timer
 char *timeOut(int timeout)  {
@@ -76,16 +78,17 @@ int checkEqual(char* temp, int timer) {
     fflush(stdout);
     char *typedWord = timeOut(timer);
 
-    //if not typed fast enough points subtracted
+    //if not typed fast enough end game
     if (typedWord == NULL) {
-        printf("Ran out of time: -1 point\n");
+        printf("%sRan out of time: Your final score: %d%s\n", AC_RED, score, AC_NORMAL);
+	return 0;
     }
 
     //logic to check if the word is correct
     if (!strcmp(temp, typedWord)) {
-	printf("Correct: +1 Point\n");
+	printf("Correct: +%d points\n", strlen(temp));
     } else {
-	printf("Incorrect: -1 Point\n");
+	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score);
 	return 0;
     }
     return 1;
