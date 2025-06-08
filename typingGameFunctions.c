@@ -118,7 +118,11 @@ void printMenu() {
 void loadHighscore() {
     scoreFile = fopen("highscores.txt", "w");
     
+    if (file == NULL) {
+	regularHighscore = 0;
+    } 
 
+    fscanf(scoreFile, "%d", &regularHighscore);
 
     fclose(scoreFile);
 
