@@ -29,3 +29,4 @@ char* CurlCall(CURL *curl, CURLcode res, char *response); //Test api call functi
 int checkEqual(char* temp, int timer);
 void printMenu();
 void loadHighscore();
+void printHighscore();
