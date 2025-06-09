@@ -54,7 +54,7 @@ int main() {
 		printf("Work in Progress!\n");
 		break;
 	    case 3:
-		printf("Work in Progress!\n");
+		printHighscore();
 		break;
 	    case 4:
 		printf("Exiting Game. Thanks for playing!\n");
