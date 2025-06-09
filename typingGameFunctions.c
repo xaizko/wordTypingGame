@@ -1,8 +1,13 @@
 #include "typingGame.h"
 
+#define AMT_OF_GAMEMODES 1
+
+//styff for tracking scores
 int score;
 int regularHighscore;
 FILE *scoreFile;
+int *scoreLocation[AMT_OF_GAMEMODES];
+
 
 //code taken from https://github.com/xaizko/UserInputTimer
 //This function simply acts as a input timer
@@ -116,16 +121,33 @@ void printMenu() {
 
 //Load Highscores
 void loadHighscore() {
-    scoreFile = fopen("highscores.txt", "w");
+    scoreFile = fopen("highscores.txt", "r");
     
-    if (file == NULL) {
+    //initialize location to modify the scores
+    scoreLocation[0] = &regularHighscore;
+
+    //fallback if file doesnt exist
+    if (scoreFile == NULL) {
 	regularHighscore = 0;
+	fclose(scoreFile);
+	return;
     } 
 
-    fscanf(scoreFile, "%d", &regularHighscore);
+    //Load scores from file
+    int i = 0;
+    char buffer[512];
+    while (fgets(buffer, sizeof(buffer), scoreFile) != NULL) {
+	*scoreLocation[i] = atoi(buffer);
+	i++;
+    }
 
     fclose(scoreFile);
 
+    return;
+}
+
+void printHighscore() {
+    printf("Regular mode highscore: %d\n", regularHighscore);
     return;
 }
 
