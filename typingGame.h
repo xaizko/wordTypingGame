@@ -30,3 +30,4 @@ int checkEqual(char* temp, int timer);
 void printMenu();
 void loadHighscore();
 void printHighscore();
+void setHighscore(int newScore, int *locationToChange);
