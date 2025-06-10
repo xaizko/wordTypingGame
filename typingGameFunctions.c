@@ -95,9 +95,10 @@ int checkEqual(char* temp, int timer) {
     if (!strcmp(temp, typedWord)) {
 	int pointsAdd = strlen(temp);
 	score += pointsAdd;
-	printf("%sCorrect: +%d points%s\n", AC_GREEN, pointsAdd, AC_NORMAL);
+	printf("%sCorrect: +%d points%s\n", AC_GREEN, pointsAdd, AC_NORMAL);	
     } else {
 	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score, AC_NORMAL);
+	setHighscore(score, &regularHighscore);
 	return 0;
     }
     return 1;
@@ -151,3 +152,9 @@ void printHighscore() {
     return;
 }
 
+void setHighscore(int newScore, int *locationToChange) {
+    if (newScore >= *locationToChange) {
+	*locationToChange = newScore;
+    }
+    return;
+}
