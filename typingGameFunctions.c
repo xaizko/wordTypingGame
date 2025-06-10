@@ -157,6 +157,7 @@ void printHighscore() {
 void setHighscore(int newScore, int *locationToChange) {
     if (newScore >= *locationToChange) {
 	*locationToChange = newScore;
+	saveHighscore();
     }
     return;
 }
@@ -167,5 +168,12 @@ void setGamemode(int mode) {
 	case 1:
 	    currentScoreModeAddress = &regularHighscore;
     }
+    return;
+}
+
+void saveHighscore() {
+    scoreFile = fopen("highscores.txt", "w");
+
+    fprintf(scoreFile, "%d", *currentScoreModeAddress);
     return;
 }
