@@ -3,11 +3,11 @@
 #define AMT_OF_GAMEMODES 1
 
 //styff for tracking scores
-int score;
+int score; // current game score
 int regularHighscore;
 FILE *scoreFile;
-int *scoreLocation[AMT_OF_GAMEMODES];
-int *currentScoreModeAddress;
+int *scoreLocation[AMT_OF_GAMEMODES]; // Array of pointers to ints that represent the highscores
+int *currentScoreModeAddress; //self explanatory - the address of the current mode's respective highscore value
 
 //code taken from https://github.com/xaizko/UserInputTimer
 //This function simply acts as a input timer
@@ -88,6 +88,7 @@ int checkEqual(char* temp, int timer) {
     //if not typed fast enough end game
     if (typedWord == NULL) {
         printf("%sRan out of time: Your final score: %d%s\n", AC_RED, score, AC_NORMAL);
+	setHighscore(score, currentScoreModeAddress);
 	return 0;
     }
 
@@ -152,6 +153,7 @@ void printHighscore() {
     return;
 }
 
+//sets new highscore if the new score is higher than the previous, only called when the game ends
 void setHighscore(int newScore, int *locationToChange) {
     if (newScore >= *locationToChange) {
 	*locationToChange = newScore;
