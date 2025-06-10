@@ -7,7 +7,7 @@ int score;
 int regularHighscore;
 FILE *scoreFile;
 int *scoreLocation[AMT_OF_GAMEMODES];
-
+int *currentScoreModeAddress;
 
 //code taken from https://github.com/xaizko/UserInputTimer
 //This function simply acts as a input timer
@@ -98,7 +98,7 @@ int checkEqual(char* temp, int timer) {
 	printf("%sCorrect: +%d points%s\n", AC_GREEN, pointsAdd, AC_NORMAL);	
     } else {
 	printf("%sIncorrect: Your final score: %d%s\n", AC_RED, score, AC_NORMAL);
-	setHighscore(score, &regularHighscore);
+	setHighscore(score, currentScoreModeAddress);
 	return 0;
     }
     return 1;
@@ -155,6 +155,14 @@ void printHighscore() {
 void setHighscore(int newScore, int *locationToChange) {
     if (newScore >= *locationToChange) {
 	*locationToChange = newScore;
+    }
+    return;
+}
+
+void setGamemode(int mode) {
+    switch (mode) {
+	case 1:
+	    currentScoreModeAddress = &regularHighscore;
     }
     return;
 }

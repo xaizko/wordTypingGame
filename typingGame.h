@@ -31,3 +31,4 @@ void printMenu();
 void loadHighscore();
 void printHighscore();
 void setHighscore(int newScore, int *locationToChange);
+void setGamemode(int mode);

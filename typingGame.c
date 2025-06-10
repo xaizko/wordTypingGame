@@ -45,6 +45,9 @@ int main() {
 		printf("Loading up Typing Game regular mode...\n");
 		printf("Enter preferred time you'd like to be given to type 1 word: ");
 		scanf("%d", &timer);
+		setGamemode(1);
+
+		//loop to play base game
 		do {
 		    word = CurlCall(curl , res, response);
 		} while (checkEqual(word, timer));
