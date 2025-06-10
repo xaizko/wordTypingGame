@@ -61,6 +61,7 @@ int main() {
 		break;
 	    case 4:
 		printf("Exiting Game. Thanks for playing!\n");
+		running = 0;
 		break;
 	    default:
 		printf("Invalid Choice, try again");
