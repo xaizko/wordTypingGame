@@ -64,7 +64,7 @@ int main() {
 		running = 0;
 		break;
 	    default:
-		printf("Invalid Choice, try again");
+		printf("Invalid Choice, try again\n");
 	}
     }
 
