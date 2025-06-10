@@ -161,6 +161,7 @@ void setHighscore(int newScore, int *locationToChange) {
     return;
 }
 
+//sets gamemode - this is set in the main game function
 void setGamemode(int mode) {
     switch (mode) {
 	case 1:
