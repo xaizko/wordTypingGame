@@ -46,7 +46,7 @@ This is a terminal-based typing game that tests your speed and accuracy! The gam
 ### Installation
 ```bash
 # Install dependencies
-sudo apt-get install libcurl4-openssl-dev
+sudo [package manager] curl
 
 # Compile the game
 make
